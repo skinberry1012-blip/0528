@@ -1,36 +1,37 @@
-/* 전체 페이지에 공통으로 적용되는 기본 설정입니다. */
+/* 전체 요소의 크기 계산 방식을 통일합니다. */
 * {
   box-sizing: border-box;
 }
 
-/* 색상과 여백을 한곳에서 관리하면 나중에 수정하기 쉽습니다. */
+/* 자주 쓰는 색상과 효과를 변수로 모아 두면 수정하기 쉽습니다. */
 :root {
   --bg-start: #f7fbf8;
-  --bg-end: #eaf4f5;
-  --surface: #ffffff;
-  --surface-soft: #fbf8f0;
+  --bg-end: #eaf3f6;
+  --white: #ffffff;
+  --ivory: #fffaf0;
+  --deep-green: #173f35;
+  --green: #2f6b5c;
+  --soft-mint: #dff3ec;
+  --soft-blue: #e8f2f9;
+  --text: #1f312d;
+  --muted: #667b76;
   --line: #dce9e5;
-  --deep-green: #163f35;
-  --green: #2d6a5b;
-  --soft-mint: #d8f0e8;
-  --soft-blue: #e7f1f8;
-  --text: #1e2f2b;
-  --muted: #657a75;
-  --shadow: 0 18px 45px rgba(22, 63, 53, 0.10);
+  --shadow-large: 0 22px 55px rgba(23, 63, 53, 0.10);
+  --shadow-small: 0 12px 28px rgba(23, 63, 53, 0.07);
 }
 
-/* 한국어가 부드럽게 보이도록 Pretendard, Noto Sans KR 계열을 우선 사용합니다. */
+/* 외부 폰트 없이도 한국어가 자연스럽게 보이는 시스템 폰트 조합입니다. */
 body {
   min-height: 100vh;
   margin: 0;
   font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(216, 240, 232, 0.9), transparent 34rem),
+    radial-gradient(circle at 12% 8%, rgba(223, 243, 236, 0.95), transparent 32rem),
     linear-gradient(135deg, var(--bg-start), var(--bg-end));
 }
 
-/* 상단 헤더 영역입니다. 모바일에서도 답답하지 않게 줄바꿈을 허용합니다. */
+/* 상단 헤더는 학교 보건실이라는 정체성을 짧게 보여 줍니다. */
 .site-header {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
@@ -49,7 +50,6 @@ body {
   text-decoration: none;
   font-size: 16px;
   font-weight: 800;
-  letter-spacing: 0;
 }
 
 .brand-mark {
@@ -59,25 +59,26 @@ body {
   place-items: center;
   border-radius: 10px;
   background: var(--deep-green);
-  color: #ffffff;
+  color: var(--white);
   font-size: 22px;
   line-height: 1;
 }
 
 .header-note {
+  margin: 0;
   color: var(--muted);
   font-size: 14px;
   font-weight: 600;
 }
 
-/* 페이지 내용의 최대 너비와 기본 간격을 정합니다. */
+/* 페이지 전체 폭과 아래쪽 여백을 정합니다. */
 .page-shell {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
   padding: 42px 0 56px;
 }
 
-/* 메인 안내 영역은 PC에서는 좌우 배치, 모바일에서는 세로 배치가 됩니다. */
+/* PC에서는 메인 안내와 보조 패널이 나란히 보입니다. */
 .hero-section {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
@@ -88,13 +89,222 @@ body {
 .hero-copy,
 .hero-panel,
 .info-card {
-  border: 1px solid rgba(220, 233, 229, 0.85);
+  border: 1px solid rgba(220, 233, 229, 0.9);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.84);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-large);
 }
 
 .hero-copy {
   padding: clamp(32px, 5vw, 58px);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* 첫 화면 제목입니다. 크고 선명하지만 과하게 장식적이지 않게 조정했습니다. */
+h1 {
+  margin: 0;
+  color: var(--deep-green);
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 680px;
+  margin: 24px 0 0;
+  color: #425e58;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.8;
+}
+
+/* 버튼은 너무 둥글지 않게 만들고, hover 때 살짝 떠오르게 했습니다. */
+.primary-button {
+  margin-top: 34px;
+  padding: 15px 24px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1e5a4c, #347b6b);
+  color: var(--white);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(30, 90, 76, 0.20);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 16px 30px rgba(30, 90, 76, 0.26);
+}
+
+.primary-button:focus-visible {
+  outline: 3px solid rgba(45, 106, 91, 0.25);
+  outline-offset: 4px;
+}
+
+/* 안내 문구는 처음에는 숨겨지고, show 클래스가 붙으면 부드럽게 나타납니다. */
+.message {
+  max-width: 620px;
+  margin: 0;
+  padding: 0;
+  color: var(--deep-green);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease, margin-top 0.28s ease, padding 0.28s ease;
+}
+
+.message.show {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px solid rgba(45, 106, 91, 0.14);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--soft-mint), var(--soft-blue));
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 오른쪽 안내 패널은 보건실의 따뜻한 분위기를 보조합니다. */
+.hero-panel {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 240, 0.9)),
+    linear-gradient(135deg, var(--soft-mint), var(--soft-blue));
+}
+
+.panel-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: auto;
+  border-radius: 16px;
+  background: var(--soft-mint);
+  color: var(--deep-green);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.panel-label {
+  margin: 44px 0 10px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.panel-title {
+  margin: 0;
+  color: var(--deep-green);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.panel-text {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 작은 정보 카드 3개를 정돈된 그리드로 배치합니다. */
+.info-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  padding: 24px;
+  box-shadow: var(--shadow-small);
+}
+
+.info-number {
+  display: inline-flex;
+  margin-bottom: 20px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.info-card h2 {
+  margin: 0 0 12px;
+  color: var(--deep-green);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.info-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* 태블릿과 모바일에서는 모든 영역을 한 줄씩 세로로 쌓습니다. */
+@media (max-width: 820px) {
+  .site-header,
+  .page-shell {
+    width: min(100% - 28px, 640px);
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-shell {
+    padding-top: 24px;
+  }
+
+  .hero-section,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .info-card {
+    border-radius: 18px;
+  }
+
+  .hero-copy,
+  .hero-panel {
+    padding: 26px;
+  }
+
+  .panel-label {
+    margin-top: 34px;
+  }
+}
+
+/* 아주 작은 화면에서는 버튼을 전체 너비로 만들어 누르기 쉽게 합니다. */
+@media (max-width: 420px) {
+  .primary-button {
+    width: 100%;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .info-card {
+    padding: 22px;
+  }
 }
