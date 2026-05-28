@@ -4,55 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>보건실 안내</title>
-  <!-- 페이지의 시각 디자인은 style.css에서 관리합니다. -->
-  <link rel="stylesheet" href="style.css">
+  <!-- GitHub Pages에서도 같은 폴더의 CSS 파일을 불러옵니다. -->
+  <link rel="stylesheet" href="./style.css?v=20260528">
 </head>
 <body>
-  <!-- 상단 헤더: 페이지의 성격을 짧고 신뢰감 있게 보여 줍니다. -->
   <header class="site-header">
-    <a class="brand" href="#">
-      <span class="brand-mark">+</span>
+    <a class="brand" href="./index.html" aria-label="보건실 안내 첫 화면으로 이동">
+      <span class="brand-mark" aria-hidden="true">+</span>
       <span>학교 보건실</span>
     </a>
-    <span class="header-note">따뜻하고 안전한 건강 쉼터</span>
+    <p class="header-note">따뜻하고 안전한 건강 쉼터</p>
   </header>
 
   <main class="page-shell">
-    <!-- 메인 안내 영역: 가장 중요한 안내 문구와 버튼을 담습니다. -->
     <section class="hero-section" aria-labelledby="page-title">
       <div class="hero-copy">
         <p class="eyebrow">Health Room Guide</p>
         <h1 id="page-title">보건실 안내</h1>
         <p class="lead">
-          몸이 불편하거나 마음이 편하지 않을 때, 혼자 참지 말고 가까운 선생님이나 보건 선생님께 알려 주세요.
-          학생과 학부모가 안심할 수 있도록 차분하고 세심하게 돕겠습니다.
+          몸이 불편하거나 마음이 편하지 않을 때는 혼자 참지 말고 가까운 선생님이나 보건 선생님께 알려 주세요.
+          학생과 학부모가 안심할 수 있도록 보건실에서 차분하고 세심하게 돕겠습니다.
         </p>
 
-        <!-- 버튼을 누르면 아래 안내 문구가 자연스럽게 나타납니다. -->
         <button id="messageButton" class="primary-button" type="button">
           안내 문구 확인하기
         </button>
 
-        <!-- 처음에는 숨겨져 있고, JavaScript가 문구와 표시 상태를 바꿉니다. -->
         <p id="message" class="message" aria-live="polite"></p>
       </div>
 
-      <div class="hero-panel" aria-label="보건실 이용 핵심 안내">
-        <div class="panel-icon">+</div>
+      <aside class="hero-panel" aria-label="보건실 이용 핵심 안내">
+        <div class="panel-icon" aria-hidden="true">+</div>
         <p class="panel-label">오늘의 안내</p>
         <p class="panel-title">아픈 곳이 있으면 바로 이야기해요</p>
         <p class="panel-text">
           작은 불편함도 괜찮습니다. 수업 중이라도 도움이 필요하면 선생님께 알려 주세요.
         </p>
-      </div>
+      </aside>
     </section>
 
-    <!-- 작은 정보 카드: 보건실을 언제, 어떻게 이용하면 좋은지 정리합니다. -->
     <section class="info-grid" aria-label="보건실 이용 정보">
       <article class="info-card">
         <span class="info-number">01</span>
         <h2>이럴 때 방문해요</h2>
-        <p>열이 나거나 배가 아플 때, 다쳤을 때, 어지럽거나 쉬고 싶을 때 보건실에 올 수 있어요.</p>
+        <p>열이 나거나 배가 아플 때, 다쳤을 때, 어지럽거나 잠시 쉬고 싶을 때 보건실에 올 수 있어요.</p>
       </article>
 
       <article class="info-card">
@@ -69,8 +64,7 @@
     </section>
   </main>
 
-  <!-- 버튼 클릭 기능은 script.js에서 관리합니다. -->
-  <script src="script.js"></script>
+  <!-- GitHub Pages에서도 같은 폴더의 JavaScript 파일을 불러옵니다. -->
+  <script src="./script.js?v=20260528"></script>
 </body>
 </html>
-```
